@@ -9,6 +9,7 @@ class	PhoneBook
 	public:
 		PhoneBook(void);
 
+		void	addContact(void);
 		void	displayContacts(void);
 		void	displayContacts(int n);
 

@@ -3,6 +3,31 @@
 PhoneBook::PhoneBook(void) : contacts(), index(-1)
 {}
 
+void	PhoneBook::addContact(void)
+{
+	const char	*inputs[5] = {"First Name", "Last Name", "Nickname", "Phone Number", "Secret"};
+	void		(Contact::*setters[5])(std::string) =
+	{
+		&Contact::setFirstName,
+		&Contact::setLastName,
+		&Contact::setNickName,
+		&Contact::setPhoneNumber,
+		&Contact::setSecret
+	};
+	std::string	input;
+	Contact		c;
+
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << inputs[i] << ": ";
+		std::cin >> input;
+		(c.*setters[i])(input);
+	}
+	if (this->index < MAX_CONTACTS - 1)
+		this->index++;
+	this->contacts[this->index] = c;
+}
+
 void	PhoneBook::displayContacts(void)
 {
 	displayContacts(-1);
