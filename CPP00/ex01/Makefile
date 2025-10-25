@@ -4,7 +4,7 @@ CC		= c++
 FLAGS	= -Wall -Wextra -Werror
 STD		= -std=c++98
 
-SRCS	= Contact.cpp main.cpp
+SRCS	= Contact.cpp PhoneBook.cpp main.cpp
 
 $(NAME): $(SRCS)
 	$(CC) $(FLAGS) $(STD) -o $@ $^
