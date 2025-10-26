@@ -4,18 +4,16 @@
 
 int	main(void)
 {
-	/*Contact c("Jimmy", "McGill", "Saul Goodman", "(505) 503-445", "Better Call Saul");
-	std::cout << c;
-	PhoneBook	phoneBook;
-	phoneBook.displayContacts();*/
 	PhoneBook	phoneBook;
 	std::string	input;
 
 	do
 	{
 		std::cin >> input;
+		if (std::cin.eof())
+			return (0);
 		if (input.compare("ADD") == 0)
-			phoneBook.addContact();
+			phoneBook.addContactByInputs();
 		else if (input.compare("SEARCH") == 0)
 			phoneBook.displayContacts();
 	} while (input.compare("EXIT"));

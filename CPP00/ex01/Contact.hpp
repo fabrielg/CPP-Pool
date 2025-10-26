@@ -34,7 +34,6 @@ class	Contact
 		std::string	secret;
 };
 
-
 std::ostream	&operator<<(std::ostream &os, Contact &c);
 
 #endif
