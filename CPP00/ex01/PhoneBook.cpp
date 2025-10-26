@@ -42,7 +42,7 @@ void	PhoneBook::displayContacts(int n)
 {
 	if (n < 0 || n >= this->index)
 		n = this->index + 1;
-	std::cout << "Displaying " << n << "/" << this->index + 1 << std::endl;
+	std::cout << " >> Displaying " << n << "/" << this->index + 1  << " << " << std::endl;
 	if (this->index < 0)
 		return ;
 	for (int i = 0; i <= this->index && i < n; i++)
