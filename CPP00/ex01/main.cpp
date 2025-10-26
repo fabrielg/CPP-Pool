@@ -15,7 +15,7 @@ int	main(void)
 		if (input.compare("ADD") == 0)
 			phoneBook.addContactByInputs();
 		else if (input.compare("SEARCH") == 0)
-			phoneBook.displayContacts();
+			phoneBook.displayFormatedContacts();
 	} while (input.compare("EXIT"));
 	return (0);
 }
