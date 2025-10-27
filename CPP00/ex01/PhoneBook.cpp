@@ -76,9 +76,13 @@ void	PhoneBook::displayFormatedContacts(void)
 	std::cout << "|";
 	std::cout.width(COLUMN_SIZE); std::cout << std::right << "Nickname";
 	std::cout << "|" << std::endl;
+	
+	if (this->index < 0)
+		return ;
+
 	for (int i = 0; i <= this->index; i++)
 		displayContact(i);
-	
+
 	std::string	input;
 	std::cout << "Enter a Contact index to show informations: "; std::cin >> input;
 
