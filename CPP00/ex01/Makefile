@@ -25,4 +25,4 @@ re: fclean all
 test: MAIN = main_test.cpp
 test: re
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re test
