@@ -1,4 +1,5 @@
 #include "PhoneBook.hpp"
+#include "Color.hpp"
 #include <stdlib.h>
 
 PhoneBook::PhoneBook(void) : contacts(), index(-1)
@@ -20,7 +21,7 @@ void	PhoneBook::addContactByInputs(void)
 
 	for (int i = 0; i < 5; i++)
 	{
-		std::cout << inputs[i] << ": ";
+		std::cout << YELLOW << inputs[i] << ": " << RESET;
 		std::cin >> input;
 		(c.*setters[i])(input);
 	}
@@ -67,6 +68,7 @@ void	PhoneBook::displayContact(int index)
 
 void	PhoneBook::displayFormatedContacts(void)
 {
+	std::cout << BLUE_BACKGROUND;
 	std::cout << "|";
 	std::cout.width(COLUMN_SIZE); std::cout << std::right << "Index";
 	std::cout << "|";
@@ -76,12 +78,15 @@ void	PhoneBook::displayFormatedContacts(void)
 	std::cout << "|";
 	std::cout.width(COLUMN_SIZE); std::cout << std::right << "Nickname";
 	std::cout << "|" << std::endl;
+	std::cout << RESET;
 	
 	if (this->index < 0)
 		return ;
 
+	std::cout << LIGHT_BLUE;
 	for (int i = 0; i <= this->index; i++)
 		displayContact(i);
+	std::cout << RESET;
 
 	std::string	input;
 	std::cout << "Enter a Contact index to show informations: "; std::cin >> input;
@@ -89,10 +94,10 @@ void	PhoneBook::displayFormatedContacts(void)
 	int	index = std::atoi(input.c_str());
 	if (index < 0 || index > this->index)
 	{
-		std::cout << "Contact " << index << " not found" << std::endl;
+		std::cout << RED << "Contact " << index << " not found" << std::endl << RESET;
 		return ;
 	}
-	std::cout << "Contact " << index << std::endl << this->contacts[index] << std::endl;
+	std::cout << LIGHT_BLUE << "Contact " << index << std::endl << this->contacts[index] << std::endl << RESET;
 }
 
 void	PhoneBook::displayContacts(void)
