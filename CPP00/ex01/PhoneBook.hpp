@@ -19,6 +19,7 @@ class	PhoneBook
 	private:
 		Contact	contacts[MAX_CONTACTS];
 		int		index;
+		int		nbContacts;
 
 		void	displayContact(int index);
 };
