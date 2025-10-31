@@ -19,14 +19,18 @@ int main(int argc, char **argv)
 							(std::istreambuf_iterator<char>()));
 
 		int	filter_size = ((std::string) argv[2]).size();
-		int	last_index = content.find(argv[2]);
-		while (last_index >= 0)
+		int	last_index = 0;
+		int	index = content.find(argv[2]);
+		while (index >= 0)
 		{
-			std::cout << "Found index: " << last_index << " str: " << content.substr(last_index, filter_size) << std::endl;
-			last_index = content.find(argv[2], last_index + filter_size);
+			out << content.substr(last_index, index - last_index);
+			out << argv[3];
+			last_index = index + filter_size;
+			index = content.find(argv[2], last_index);
 		}
-		
+		out << content.substr(last_index);
 		in.close();
+		out.close();
 	}
 	else
 	{
