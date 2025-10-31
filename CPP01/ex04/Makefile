@@ -1,4 +1,4 @@
-NAME	= zombie
+NAME	= replace
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror
