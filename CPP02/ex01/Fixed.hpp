@@ -8,11 +8,11 @@ class Fixed
 public:
 
 	Fixed( void );
-	Fixed( Fixed& copy );
+	Fixed( const Fixed& copy );
 	Fixed( const int n );
 	Fixed( const float n );
 	~Fixed( void );
-	const Fixed&	operator=( Fixed& copy );
+	const Fixed&	operator=( const Fixed& copy );
 
 	int		getRawBits( void ) const;
 	void	setRawBits( const int raw);
@@ -26,6 +26,6 @@ private:
 	int					_bits;
 };
 
-std::ostream	&operator<<(std::ostream &os, Fixed &fixed);
+std::ostream	&operator<<(std::ostream &os, const Fixed &fixed);
 
 #endif

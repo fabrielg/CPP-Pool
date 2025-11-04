@@ -7,7 +7,7 @@ Fixed::Fixed( void ) : _bits(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed( Fixed& copy )
+Fixed::Fixed( const Fixed& copy )
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
@@ -30,14 +30,14 @@ Fixed::~Fixed( void )
 	std::cout << "Destructor called" << std::endl;
 }
 
-const Fixed&	Fixed::operator=( Fixed& copy )
+const Fixed&	Fixed::operator=( const Fixed& copy )
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->_bits = copy.getRawBits();
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream &os, Fixed &fixed)
+std::ostream	&operator<<(std::ostream &os, const Fixed &fixed)
 {
 	os << fixed.toFloat();
 	return (os);
