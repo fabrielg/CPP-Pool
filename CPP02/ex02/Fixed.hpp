@@ -13,15 +13,15 @@ public:
 	Fixed( const float n );
 	~Fixed( void );
 	
-	const Fixed&	operator=( const Fixed& copy );
-	const Fixed&	operator+( const Fixed& copy );
-	const Fixed&	operator-( const Fixed& copy );
-	const Fixed&	operator*( const Fixed& copy );
-	const Fixed&	operator/( const Fixed& copy );
-	const Fixed&	operator++( void );
-	const Fixed		operator++( int );
-	const Fixed&	operator--( void );
-	const Fixed		operator--( int );
+	Fixed&			operator=( const Fixed& copy );
+	Fixed			operator+( const Fixed& copy );
+	Fixed			operator-( const Fixed& copy );
+	Fixed			operator*( const Fixed& copy );
+	Fixed			operator/( const Fixed& copy );
+	Fixed&			operator++( void );
+	Fixed			operator++( int );
+	Fixed&			operator--( void );
+	Fixed			operator--( int );
 	bool			operator<( const Fixed& copy ) const;
 	bool			operator>( const Fixed& copy ) const;
 	bool			operator<=( const Fixed& copy ) const;
