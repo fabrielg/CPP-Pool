@@ -1,38 +1,26 @@
 #include "Point.hpp"
-#include <iostream>
-#include <cmath>
 
-static float	area( const Point a, const Point b, const Point c )
+static Fixed	cross(const Point& A, const Point& B, const Point& P)
 {
-	float x1 = a.getX().toFloat();
-	float y1 = a.getY().toFloat();
-	float x2 = b.getX().toFloat();
-	float y2 = b.getY().toFloat();
-	float x3 = c.getX().toFloat();
-	float y3 = c.getY().toFloat();
+	Fixed	abx = B.getX() - A.getX();
+	Fixed	aby = B.getY() - A.getY();
+	Fixed	apx = P.getX() - A.getX();
+	Fixed	apy = P.getY() - A.getY();
 
-	std::cout << "DEBUG" << std::endl;
-	std::cout << "x1 = " << x1 << " y1 = " << y1 << std::endl;
-	std::cout << "x2 = " << x2 << " y2 = " << y2 << std::endl;
-	std::cout << "x3 = " << x3 << " y3 = " << y3 << std::endl;
-
-	return (
-		std::abs(
-			(x1 * (y2 - y3)
-			+
-			x2 * (y3 - y1)
-			+
-			x3 * (y1 - y2)
-			/ 2.0f))
-	);
+	return (abx * apy) - (aby * apx);
 }
 
-bool bsp( Point const a, Point const b, Point const c, Point const point)
+bool	bsp(Point const A, Point const B, Point const C, Point const P)
 {
-	float A = area( a, b, c );
-	float A1 = area( point, b, c );
-	float A2 = area( a, point, c );
-	float A3 = area( a, b, point );
+	Fixed	c1 = cross(A, B, P);
+	Fixed	c2 = cross(B, C, P);
+	Fixed	c3 = cross(C, A, P);
 
-	return (A == A1 + A2 + A3);
+	if (c1 == Fixed(0) || c2 == Fixed(0) || c3 == Fixed(0))
+		return (false);
+
+	bool	has_neg = ((c1 < Fixed(0)) || (c2 < Fixed(0)) || (c3 < Fixed(0)));
+	bool	has_pos = ((c1 > Fixed(0)) || (c2 > Fixed(0)) || (c3 > Fixed(0)));
+
+	return !(has_neg && has_pos);
 }

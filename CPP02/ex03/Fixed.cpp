@@ -23,43 +23,43 @@ Fixed::Fixed( const float n )
 Fixed::~Fixed( void )
 {}
 
-const Fixed&	Fixed::operator=( const Fixed& copy )
+Fixed&	Fixed::operator=( const Fixed& copy )
 {
 	this->_bits = copy.getRawBits();
 	return (*this);
 }
 
-const Fixed&	Fixed::operator+( const Fixed& copy )
+Fixed	Fixed::operator+( const Fixed& copy )
 {
 	this->_bits += copy.getRawBits();
 	return (*this);
 }
 
-const Fixed&	Fixed::operator-( const Fixed& copy )
+Fixed	Fixed::operator-( const Fixed& copy )
 {
 	this->_bits -= copy.getRawBits();
 	return (*this);
 }
 
-const Fixed&	Fixed::operator*( const Fixed& copy )
+Fixed	Fixed::operator*( const Fixed& copy )
 {
 	this->_bits *= copy.getRawBits() >> this->_offset;
 	return (*this);
 }
 
-const Fixed&	Fixed::operator/( const Fixed& copy )
+Fixed	Fixed::operator/( const Fixed& copy )
 {
 	this->_bits /= copy.getRawBits();
 	return (*this);
 }
 
-const Fixed&	Fixed::operator++( void )
+Fixed&	Fixed::operator++( void )
 {
 	this->_bits++;
 	return (*this);
 }
 
-const Fixed	Fixed::operator++( int )
+Fixed	Fixed::operator++( int )
 {
 	Fixed	temp = *this;
 
@@ -67,13 +67,13 @@ const Fixed	Fixed::operator++( int )
 	return (temp);
 }
 
-const Fixed&	Fixed::operator--( void )
+Fixed&	Fixed::operator--( void )
 {
 	this->_bits--;
 	return (*this);
 }
 
-const Fixed	Fixed::operator--( int )
+Fixed	Fixed::operator--( int )
 {
 	Fixed	temp = *this;
 
@@ -135,6 +135,11 @@ const Fixed&	Fixed::min( const Fixed& a, const Fixed& b)
 Fixed&	Fixed::min( Fixed& a, Fixed& b)
 {
 	return (a <= b ? a : b);
+}
+
+int	Fixed::getOffset( void )
+{
+	return (_offset);
 }
 
 int	Fixed::getRawBits( void ) const
