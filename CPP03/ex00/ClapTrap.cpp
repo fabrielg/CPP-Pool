@@ -39,7 +39,7 @@ const ClapTrap&	ClapTrap::operator=( const ClapTrap& copy )
 
 void	ClapTrap::attack( const std::string& target )
 {
-	if (this->_energyPoint <= 0)
+	if (this->_energyPoint <= 0 || this->_hitPoint <=0)
 		return ;
 	this->_energyPoint--;
 	std::cout	<< "ClapTrap " << this->_name
@@ -61,7 +61,7 @@ void	ClapTrap::takeDamage( unsigned int amount )
 
 void	ClapTrap::beRepaired( unsigned int amount )
 {
-	if (this->_energyPoint <= 0)
+	if (this->_energyPoint <= 0 || this->_hitPoint <= 0)
 		return ;
 	this->_energyPoint--;
 	this->_hitPoint += amount;
