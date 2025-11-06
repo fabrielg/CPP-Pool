@@ -1,72 +1,54 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-ClapTrap::ClapTrap( void )
+int	main(void)
 {
-	std::cout << "Default constructor called" << std::endl;
+	ClapTrap	bob("bob");
 
-	ClapTrap( "ClapTrap" );
-}
+	bob.attack("marley");
+	bob.attack("marley");
+	bob.attack("marley");
 
-ClapTrap::ClapTrap( const std::string& name ) : _name(name), _hitPoint(10), _energyPoint(10), _attackDamage(10)
-{
-	std::cout << "String constructor called" << std::endl;
-}
+	std::cout << std::endl;
 
-ClapTrap::ClapTrap( const ClapTrap& copy)
-{
-	std::cout << "Copy constructor called" << std::endl;
-
-	*this = copy;
-}
-
-ClapTrap::~ClapTrap( void )
-{
-	std::cout << "Destructor called" << std::endl;
-}
-
-const ClapTrap&	ClapTrap::operator=( const ClapTrap& copy )
-{
-	std::cout << "Assignment operator called" << std::endl;
-
-	this->_name = copy._name;
-	this->_hitPoint = copy._hitPoint;
-	this->_energyPoint = copy._energyPoint;
-	this->_attackDamage = copy._attackDamage;
+	bob.takeDamage(2);
+	bob.takeDamage(1);
+	bob.beRepaired(2);
 	
-	return (*this);
-}
+	std::cout << std::endl;
 
-void	ClapTrap::attack( const std::string& target )
-{
-	if (this->_energyPoint <= 0 || this->_hitPoint <=0)
-		return ;
-	this->_energyPoint--;
-	std::cout	<< "ClapTrap " << this->_name
-				<< " attacks " << target
-				<< ", causing " << this->_attackDamage
-				<< " points of damage !" << std::endl;
-}
+	bob.attack("marley");
+	bob.attack("marley");
 
-void	ClapTrap::takeDamage( unsigned int amount )
-{
-	this->_hitPoint -= amount;
-	if (this->_hitPoint < 0)
-		this->_hitPoint = 0;
-	std::cout	<< "ClapTrap " << this->_name
-				<< " took " << amount
-				<< " points of damage and now has "
-				<< this->_hitPoint << " hit points !" << std::endl;
-}
+	std::cout << std::endl;
 
-void	ClapTrap::beRepaired( unsigned int amount )
-{
-	if (this->_energyPoint <= 0 || this->_hitPoint <= 0)
-		return ;
-	this->_energyPoint--;
-	this->_hitPoint += amount;
-	std::cout	<< "ClapTrap " << this->_name
-				<< " repairs itself " << amount
-				<< " hit points and now has "
-				<< this->_hitPoint << " hit points !" << std::endl;
+	bob.takeDamage(4);
+	bob.takeDamage(3);
+
+	std::cout << std::endl;
+
+	bob.beRepaired(3);
+	
+	std::cout << std::endl;
+
+	bob.takeDamage(3);
+	bob.takeDamage(8);
+	
+	std::cout << std::endl;
+
+	std::cout << "Here, bob can't attack or repair itself anymore :/" << std::endl;
+
+	bob.beRepaired(10);
+	
+	std::cout << std::endl;
+
+	bob.attack("marley");
+	bob.attack("marley");
+
+	bob.attack("marley");
+	bob.attack("marley");
+	bob.attack("marley");
+	bob.beRepaired(8);
+
+	return 0;
 }
