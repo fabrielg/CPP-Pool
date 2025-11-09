@@ -1,4 +1,4 @@
-NAME	= claptrap
+NAME	= diamondtrap
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror
