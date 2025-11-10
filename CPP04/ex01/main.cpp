@@ -2,9 +2,6 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
-
 #define NB_ANIMALS 10
 
 int main(void)

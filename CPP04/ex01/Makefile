@@ -4,7 +4,7 @@ CC		= c++
 FLAGS	= -Wall -Wextra -Werror
 STD		= -std=c++98
 
-SRCS	= Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRCS	= Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 
 MAIN	= main.cpp
 
