@@ -1,10 +1,10 @@
-NAME	= fragtrap
+NAME	= animal
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror
 STD		= -std=c++98
 
-SRCS	= ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRCS	= Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 
 MAIN	= main.cpp
 
