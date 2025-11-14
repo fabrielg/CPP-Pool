@@ -4,9 +4,17 @@
 # include "ICharacter.hpp"
 # include "AMateria.hpp"
 
+# define INVENTORY_SIZE 4
+
 class Character : public ICharacter
 {
 public:
+
+	Character( void );
+	Character( const Character& copy );
+	~Character( void );
+
+	const Character&	operator=( const Character& copy );
 
 	std::string const & getName() const;
 	void equip(AMateria* m);
@@ -16,8 +24,8 @@ public:
 
 private:
 
-	const std::string	_name;
-	AMateria*			_inventory[4];
+	std::string	_name;
+	AMateria*	_inventory[INVENTORY_SIZE];
 
 	int					_getFirstEmptySlot( void ) const;
 };
