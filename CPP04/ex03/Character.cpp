@@ -4,19 +4,26 @@ Character::Character( void ) :
 	_name("Bob")
 {}
 
+Character::Character( const std::string& name ) :
+	_name(name)
+{}
+
 Character::Character( const Character& copy )
 {
 	*this = copy;
 }
 
 Character::~Character( void )
-{}
+{
+	delete[] _inventory;
+}
 
 const Character&	Character::operator=( const Character& copy )
 {
 	_name = copy._name;
+	delete[] _inventory;
 	for (int i = 0; i < INVENTORY_SIZE; i++)
-		_inventory[i] = copy._inventory[i];
+		_inventory[i] = copy._inventory[i]->clone();
 	return (*this);
 }
 

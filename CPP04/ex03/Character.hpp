@@ -11,6 +11,7 @@ class Character : public ICharacter
 public:
 
 	Character( void );
+	Character( const std::string& name );
 	Character( const Character& copy );
 	~Character( void );
 
