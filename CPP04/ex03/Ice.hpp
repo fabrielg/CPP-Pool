@@ -2,7 +2,6 @@
 # define ICE_H
 
 # include "AMateria.hpp"
-# include <iostream>
 
 class Ice : public AMateria
 {
@@ -13,6 +12,9 @@ public:
 	~Ice( void );
 
 	const Ice&	operator=( const Ice& copy );
+
+	AMateria*	clone( void ) const;
+	void		use( ICharacter& target );
 };
 
 #endif
