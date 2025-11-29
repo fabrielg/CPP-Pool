@@ -10,5 +10,5 @@ int	main(void)
 	delete marley;
 
 	randomChump("Bob Marley");
-	return (1);
+	return (0);
 }
