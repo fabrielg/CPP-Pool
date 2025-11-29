@@ -9,7 +9,7 @@ int	main(void)
 	Contact c("Jimmy", "McGill", "Saul Goodman", "(505) 503-445", "Better Call Saul");
 	phoneBook.addContact(c);
 
-	c = Contact("Walter", "White", "Heisenberg", "(505) 248-668", "He cook blue meth");
+	c = Contact("Walter", "White", "Heisenberg", "(505) 248-668", "He cooks blue meth");
 	phoneBook.addContact(c);
 
 	c = Contact("Jessie", "Pinkman", "Cap'n Cook", "(505) 503-4455", "He does not likes bathtub");
