@@ -15,7 +15,8 @@ Character::Character( const Character& copy )
 
 Character::~Character( void )
 {
-	delete[] _inventory;
+	for (int i = 0; i < INVENTORY_SIZE; i++)
+		delete _inventory[i];
 }
 
 const Character&	Character::operator=( const Character& copy )

@@ -21,6 +21,7 @@ AMateria::~AMateria( void )
 
 const AMateria&	AMateria::operator=( const AMateria& copy )
 {
+	(void)copy;
 	return (*this);
 }
 
@@ -31,4 +32,6 @@ const std::string	AMateria::getType( void ) const
 
 
 void	AMateria::use( ICharacter& target )
-{}
+{
+	std::cout << "* tries to do something weird to " << target.getName() << " *" << std::endl;
+}
