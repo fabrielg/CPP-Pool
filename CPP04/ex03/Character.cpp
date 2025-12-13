@@ -1,11 +1,13 @@
 #include "Character.hpp"
 
 Character::Character( void ) :
-	_name("Bob")
+	_name("Bob"),
+	_inventory()
 {}
 
 Character::Character( const std::string& name ) :
-	_name(name)
+	_name(name),
+	_inventory()
 {}
 
 Character::Character( const Character& copy )
@@ -22,7 +24,6 @@ Character::~Character( void )
 const Character&	Character::operator=( const Character& copy )
 {
 	_name = copy._name;
-	delete[] _inventory;
 	for (int i = 0; i < INVENTORY_SIZE; i++)
 		_inventory[i] = copy._inventory[i]->clone();
 	return (*this);
@@ -35,9 +36,9 @@ const std::string&	Character::getName( void ) const
 
 int	Character::_getFirstEmptySlot( void ) const
 {
-	int	index;
+	int	index = 0;
 
-	for (index = 0; index < INVENTORY_SIZE && _inventory[index]; index++)
+	for (; index < INVENTORY_SIZE && _inventory[index]; index++)
 		;
 	return (index);
 }
