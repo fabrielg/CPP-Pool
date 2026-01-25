@@ -14,8 +14,7 @@ Point::~Point( void )
 
 Point&	Point::operator=( const Point& copy)
 {
-	this->_x = copy._x;
-	this->_y = copy._y;
+	(void)copy;
 	return (*this);
 }
 
