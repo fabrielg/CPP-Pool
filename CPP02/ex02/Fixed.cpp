@@ -29,28 +29,41 @@ Fixed&	Fixed::operator=( const Fixed& copy )
 	return (*this);
 }
 
-Fixed	Fixed::operator+( const Fixed& copy )
+Fixed	Fixed::operator+( const Fixed& copy ) const
 {
-	this->_bits += copy.getRawBits();
-	return (*this);
+	Fixed	out;
+
+	out.setRawBits(this->_bits + copy.getRawBits());
+	return (out);
 }
 
-Fixed	Fixed::operator-( const Fixed& copy )
+Fixed	Fixed::operator-( const Fixed& copy ) const
 {
-	this->_bits -= copy.getRawBits();
-	return (*this);
+	Fixed	out;
+
+	out.setRawBits(this->_bits - copy.getRawBits());
+	return (out);
 }
 
-Fixed	Fixed::operator*( const Fixed& copy )
+Fixed	Fixed::operator*( const Fixed& copy ) const
 {
-	this->_bits *= copy.getRawBits() >> this->_offset;
-	return (*this);
+	Fixed	out;
+
+	out.setRawBits(this->_bits * copy.getRawBits() >> this->_offset);
+	return (out);
 }
 
-Fixed	Fixed::operator/( const Fixed& copy )
+Fixed	Fixed::operator/( const Fixed& other ) const
 {
-	this->_bits /= copy.getRawBits();
-	return (*this);
+	if (other.getRawBits() == 0)
+	{
+		std::cerr << "Error: division by zero" << std::endl;
+		return Fixed();
+	}
+
+	Fixed	out;
+	out.setRawBits((this->_bits << _offset) / other._bits);
+	return (out);
 }
 
 Fixed&	Fixed::operator++( void )

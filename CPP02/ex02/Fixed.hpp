@@ -14,10 +14,10 @@ public:
 	~Fixed( void );
 	
 	Fixed&			operator=( const Fixed& copy );
-	Fixed			operator+( const Fixed& copy );
-	Fixed			operator-( const Fixed& copy );
-	Fixed			operator*( const Fixed& copy );
-	Fixed			operator/( const Fixed& copy );
+	Fixed			operator+( const Fixed& copy ) const;
+	Fixed			operator-( const Fixed& copy ) const;
+	Fixed			operator*( const Fixed& copy ) const;
+	Fixed			operator/( const Fixed& copy ) const;
 	Fixed&			operator++( void );
 	Fixed			operator++( int );
 	Fixed&			operator--( void );
