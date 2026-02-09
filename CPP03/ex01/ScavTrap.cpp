@@ -1,8 +1,7 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap( void ) : ClapTrap()
+ScavTrap::ScavTrap( void ) : ClapTrap("ScavTrap")
 {
-	this->_name = "ScavTrap";
 	this->_hitPoint = 100;
 	this->_energyPoint = 50;
 	this->_attackDamage = 20;
@@ -22,8 +21,6 @@ ScavTrap::ScavTrap( const std::string& name ) : ClapTrap(name)
 ScavTrap::ScavTrap( const ScavTrap& copy ) : ClapTrap(copy)
 {
 	std::cout << "Copy constructor ScavTrap called" << std::endl;
-
-	*this = copy;
 }
 
 ScavTrap::~ScavTrap( void )
@@ -31,8 +28,11 @@ ScavTrap::~ScavTrap( void )
 	std::cout << "Destructor ScavTrap called" << std::endl;
 }
 
-const ScavTrap&	ScavTrap::operator=( const ScavTrap& copy )
+ScavTrap&	ScavTrap::operator=( const ScavTrap& copy )
 {
+	if (this == &copy)
+		return *this;
+
 	ClapTrap::operator=(copy);
 	
 	std::cout << "Assignment operator ScavTrap called" << std::endl;
@@ -42,7 +42,7 @@ const ScavTrap&	ScavTrap::operator=( const ScavTrap& copy )
 
 void	ScavTrap::attack( const std::string& target )
 {
-	if (this->_energyPoint <= 0 || this->_hitPoint <=0)
+	if (this->_energyPoint == 0 || this->_hitPoint ==0)
 		return ;
 	this->_energyPoint--;
 	std::cout	<< "ScavTrap " << this->_name
