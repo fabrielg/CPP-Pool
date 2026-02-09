@@ -12,7 +12,7 @@ public:
 	FragTrap( const FragTrap& copy );
 	~FragTrap( void );
 
-	const FragTrap&	operator=( const FragTrap& copy );
+	FragTrap&	operator=( const FragTrap& copy );
 
 	void	highFivesGuys( void );
 };
