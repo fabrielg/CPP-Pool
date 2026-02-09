@@ -12,7 +12,7 @@ public:
 	ClapTrap( const ClapTrap& copy );
 	~ClapTrap( void );
 
-	const ClapTrap&	operator=( const ClapTrap& copy );
+	ClapTrap&	operator=( const ClapTrap& copy );
 
 	void	attack( const std::string& target );
 	void	takeDamage( unsigned int amount );
@@ -21,10 +21,10 @@ public:
 
 private:
 
-	std::string	_name;
-	int			_hitPoint;
-	int			_energyPoint;
-	int			_attackDamage;
+	std::string		_name;
+	unsigned int	_hitPoint;
+	unsigned int	_energyPoint;
+	unsigned int	_attackDamage;
 };
 
 #endif
