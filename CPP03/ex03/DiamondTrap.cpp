@@ -40,7 +40,7 @@ DiamondTrap::~DiamondTrap( void )
 
 DiamondTrap&  DiamondTrap::operator=( const DiamondTrap& copy )
 {
-    if (this == &copy)  // ✅ Ajouté : protection auto-assignation
+    if (this == &copy)
         return *this;
         
     ClapTrap::operator=(copy);
