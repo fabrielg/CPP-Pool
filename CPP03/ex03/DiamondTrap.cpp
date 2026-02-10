@@ -28,10 +28,9 @@ DiamondTrap::DiamondTrap( const DiamondTrap& copy ) :
     ClapTrap(copy),
     ScavTrap(copy),
     FragTrap(copy),
-    _name(copy._name)  // ✅ Ajouté dans la liste d'initialisation
+    _name(copy._name)
 {
     std::cout << "Copy constructor DiamondTrap called" << std::endl;
-    // ✅ Enlevé : *this = copy;
 }
 
 DiamondTrap::~DiamondTrap( void )
@@ -39,7 +38,7 @@ DiamondTrap::~DiamondTrap( void )
     std::cout << "Destructor DiamondTrap called" << std::endl;
 }
 
-DiamondTrap&  DiamondTrap::operator=( const DiamondTrap& copy )  // ✅ Enlevé const
+DiamondTrap&  DiamondTrap::operator=( const DiamondTrap& copy )
 {
     if (this == &copy)  // ✅ Ajouté : protection auto-assignation
         return *this;
@@ -49,9 +48,6 @@ DiamondTrap&  DiamondTrap::operator=( const DiamondTrap& copy )  // ✅ Enlevé 
     std::cout << "Assignment operator DiamondTrap called" << std::endl;
     return *this;
 }
-
-// ✅ ENLEVÉ : void DiamondTrap::attack()
-// attack() est maintenant héritée automatiquement de ScavTrap grâce à virtual
 
 void    DiamondTrap::whoAmI( void )
 {
