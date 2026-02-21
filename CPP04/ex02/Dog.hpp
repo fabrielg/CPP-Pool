@@ -12,9 +12,11 @@ public:
 	Dog( const Dog& copy );
 	~Dog( void );
 
-	const Dog&	operator=( const Dog& copy );
+	Dog&	operator=( const Dog& copy );
 
 	void	makeSound( void ) const;
+
+	Brain*	getBrain( void ) const;
 
 
 private:

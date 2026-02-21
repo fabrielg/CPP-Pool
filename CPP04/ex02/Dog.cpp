@@ -20,9 +20,12 @@ Dog::~Dog( void )
 	delete _brain;
 }
 
-const Dog&	Dog::operator=( const Dog& copy )
+Dog&	Dog::operator=( const Dog& copy )
 {
 	std::cout << "Assignment operator Dog called" << std::endl;
+
+	if (this == &copy)
+		return *this;
 
 	AAnimal::operator=(copy);
 
@@ -37,4 +40,9 @@ const Dog&	Dog::operator=( const Dog& copy )
 void	Dog::makeSound( void ) const
 {
 	std::cout << this->getType() << ": * Woof *" << std::endl;
+}
+
+Brain*	Dog::getBrain( void ) const
+{
+	return _brain;
 }
