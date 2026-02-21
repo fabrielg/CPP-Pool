@@ -12,9 +12,11 @@ public:
 	Cat( const Cat& copy );
 	~Cat( void );
 
-	const Cat&	operator=( const Cat& copy );
+	Cat&	operator=( const Cat& copy );
 
 	void	makeSound( void ) const;
+
+	Brain*	getBrain( void ) const;
 
 
 private:

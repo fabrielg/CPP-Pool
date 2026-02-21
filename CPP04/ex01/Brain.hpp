@@ -11,7 +11,7 @@ public:
 	Brain( const Brain& copy );
 	~Brain( void );
 
-	const Brain&	operator=( const Brain& copy );
+	Brain&	operator=( const Brain& copy );
 
 
 private:

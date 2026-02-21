@@ -2,11 +2,11 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
-#define NB_ANIMALS 10
+#define NB_ANIMALS 2
 
 int main(void)
 {
-	std::cout << "=== 🧠 Animals Constructor ===" << std::endl;
+	std::cout << "=== Animals Constructor ===" << std::endl;
 	Animal*	animals[NB_ANIMALS];
 
 	for (int i = 0; i < NB_ANIMALS; i++)
@@ -17,18 +17,18 @@ int main(void)
 			animals[i] = new Dog;
 	}
 
-	std::cout << std::endl << "=== 😺🐶 Sounds test ===" << std::endl;
+	std::cout << std::endl << "=== Sounds test ===" << std::endl;
 	for (int i = 0; i < NB_ANIMALS; i++)
 	{
 		std::cout << i << ": ";
 		animals[i]->makeSound();
 	}
 
-	std::cout << std::endl << "=== 💀 Animals Destructor ===" << std::endl;
+	std::cout << std::endl << "=== Animals Destructor ===" << std::endl;
 	for (int i = 0; i < NB_ANIMALS; i++)
 		delete animals[i];
 
-	std::cout << std::endl << "=== ⛳ Deep Copy test ===" << std::endl;
+	std::cout << std::endl << "=== Deep Copy test ===" << std::endl;
 	{
 		Cat originalCat;
 		originalCat.makeSound();
