@@ -1,25 +1,30 @@
 NAME	= materia
-
 CC		= c++
+SRC		= main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
+
 FLAGS	= -Wall -Wextra -Werror
 STD		= -std=c++98
 
-SRCS	= AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
-
-MAIN	= main.cpp
-
-$(NAME): $(SRCS)
-	$(CC) $(FLAGS) $(STD) -o $@ $^ $(MAIN)
-
-$(SRCS): SRCS += $(MAIN)
+OBJ_DIR = obj
+OBJ = $(addprefix $(OBJ_DIR)/, $(addsuffix .o, $(basename $(SRC))))
 
 all: $(NAME)
 
-clean:
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
-fclean: clean
-	rm -fr $(NAME)
+$(OBJ_DIR)/%.o : %.cpp
+	$(CC) $(FLAGS) $(STD) -o $@ -c $< $(INCLUDES)
 
-re: fclean all
+$(NAME) : $(OBJ_DIR) $(OBJ)
+	$(CC) -o $(NAME) $(OBJ)
 
-.PHONY: all clean fclean re
+clean :
+	rm -fr $(OBJ_DIR)
+
+fclean : clean
+	rm -f $(NAME)
+
+re : fclean all
+
+.PHONY : all clean fclean re
