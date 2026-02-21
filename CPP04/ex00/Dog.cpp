@@ -17,9 +17,12 @@ Dog::~Dog( void )
 	std::cout << "Dog destructor called" << std::endl;
 }
 
-const Dog&	Dog::operator=( const Dog& copy )
+Dog&	Dog::operator=( const Dog& copy )
 {
 	std::cout << "Assignment operator Dog called" << std::endl;
+
+	if (this == &copy)
+		return *this;
 
 	Animal::operator=(copy);
 

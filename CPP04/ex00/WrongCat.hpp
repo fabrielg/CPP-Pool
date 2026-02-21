@@ -11,7 +11,9 @@ public:
 	WrongCat( const WrongCat& copy );
 	~WrongCat( void );
 
-	const WrongCat&	operator=( const WrongCat& copy );
+	WrongCat&	operator=( const WrongCat& copy );
+
+	void	makeSound( void ) const;
 };
 
 #endif

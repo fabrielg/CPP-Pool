@@ -17,10 +17,13 @@ Cat::~Cat( void )
 	std::cout << "Cat destructor called" << std::endl;
 }
 
-const Cat&	Cat::operator=( const Cat& copy )
+Cat&	Cat::operator=( const Cat& copy )
 {
 	std::cout << "Assignment operator Cat called" << std::endl;
 	
+	if (this == &copy)
+		return *this;
+
 	Animal::operator=(copy);
 
 	return (*this);

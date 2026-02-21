@@ -11,7 +11,7 @@ public:
 	WrongAnimal( const WrongAnimal& copy );
 	virtual ~WrongAnimal( void );
 
-	const WrongAnimal&	operator=( const WrongAnimal& copy );
+	WrongAnimal&	operator=( const WrongAnimal& copy );
 
 	std::string	getType( void ) const;
 

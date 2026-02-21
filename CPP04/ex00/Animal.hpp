@@ -11,7 +11,7 @@ public:
 	Animal( const Animal& copy );
 	virtual ~Animal( void );
 
-	const Animal&	operator=( const Animal& copy );
+	Animal&	operator=( const Animal& copy );
 
 	std::string	getType( void ) const;
 

@@ -23,9 +23,12 @@ WrongAnimal::~WrongAnimal( void )
 	std::cout << "Destructor called" << std::endl;
 }
 
-const WrongAnimal&	WrongAnimal::operator=( const WrongAnimal& copy )
+WrongAnimal&	WrongAnimal::operator=( const WrongAnimal& copy )
 {
 	std::cout << "Assignment operator WrongAnimal called" << std::endl;
+
+	if (this == &copy)
+		return *this;
 
 	this->_type = copy._type;
 
