@@ -11,7 +11,7 @@ Cure::Cure( const Cure& copy ) :
 Cure::~Cure( void )
 {}
 
-const Cure&	Cure::operator=( const Cure& copy )
+Cure&	Cure::operator=( const Cure& copy )
 {
 	AMateria::operator=(copy);
 	return (*this);

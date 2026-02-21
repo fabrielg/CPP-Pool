@@ -9,17 +9,15 @@ AMateria::AMateria( const std::string& type ) :
 {}
 
 
-AMateria::AMateria( const AMateria& copy )
-{
-	*this = copy;
-}
-
+AMateria::AMateria( const AMateria& copy ) :
+	_type(copy._type)
+{}
 
 AMateria::~AMateria( void )
 {}
 
 
-const AMateria&	AMateria::operator=( const AMateria& copy )
+AMateria&	AMateria::operator=( const AMateria& copy )
 {
 	(void)copy;
 	return (*this);

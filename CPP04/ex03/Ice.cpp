@@ -11,7 +11,7 @@ Ice::Ice( const Ice& copy ) :
 Ice::~Ice( void )
 {}
 
-const Ice&	Ice::operator=( const Ice& copy )
+Ice&	Ice::operator=( const Ice& copy )
 {
 	AMateria::operator=(copy);
 	return (*this);

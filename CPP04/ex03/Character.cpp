@@ -1,32 +1,61 @@
 #include "Character.hpp"
 
 Character::Character( void ) :
-	_name("Bob"),
-	_inventory()
-{}
+	_name("Bob")
+{
+	for (int i = 0; i < INVENTORY_SIZE; i++)
+		_inventory[i] = NULL;
+}
 
 Character::Character( const std::string& name ) :
-	_name(name),
-	_inventory()
-{}
-
-Character::Character( const Character& copy )
+	_name(name)
 {
-	*this = copy;
+	for (int i = 0; i < INVENTORY_SIZE; i++)
+		_inventory[i] = NULL;
+}
+
+Character::Character( const Character& copy ) :
+	_name(copy._name)
+{
+	for (int i = 0; i < INVENTORY_SIZE; i++)
+	{
+		if (copy._inventory[i])
+			_inventory[i] = copy._inventory[i]->clone();
+		else
+			_inventory[i] = NULL;
+	}
 }
 
 Character::~Character( void )
 {
 	for (int i = 0; i < INVENTORY_SIZE; i++)
-		delete _inventory[i];
+	{
+		if (_inventory[i])
+			delete _inventory[i];
+	}
 }
 
-const Character&	Character::operator=( const Character& copy )
+Character&	Character::operator=( const Character& copy )
 {
-	_name = copy._name;
+	if (this == &copy)
+		return *this;
+
 	for (int i = 0; i < INVENTORY_SIZE; i++)
-		_inventory[i] = copy._inventory[i]->clone();
-	return (*this);
+	{
+		if (_inventory[i])
+			delete _inventory[i];
+		_inventory[i] = NULL;
+	}
+
+	_name = copy._name;
+
+	for (int i = 0; i < INVENTORY_SIZE; i++)
+	{
+		if (copy._inventory[i])
+			_inventory[i] = copy._inventory[i]->clone();
+	}
+
+	return *this;
 }
 
 const std::string&	Character::getName( void ) const

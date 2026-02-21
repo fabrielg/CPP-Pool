@@ -15,8 +15,10 @@ MateriaSource::MateriaSource( const MateriaSource &cpy ) :
 }
 
 MateriaSource::~MateriaSource( void )
-{}
-
+{
+	for (unsigned int i = 0; i < _materiaCount; i++)
+		delete _materias[i];
+}
 MateriaSource	&MateriaSource::operator=( const MateriaSource &cpy )
 {
 	for (unsigned int i = 0; i < _materiaCount; i++)
@@ -37,6 +39,6 @@ AMateria	*MateriaSource::createMateria( std::string const &type )
 {
 	for (unsigned int i = 0; i < _materiaCount; i++)
 		if (!_materias[i]->getType().compare(type))
-			return (_materias[i]);
+			return (_materias[i]->clone());
 	return (0);
 }
