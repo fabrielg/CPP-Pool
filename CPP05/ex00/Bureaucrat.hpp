@@ -1,4 +1,4 @@
-#ifdef BUREAUCRAT_HPP
+#ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
 # include <iostream>
@@ -18,6 +18,6 @@ public:
 
 	const std::string	getName() const;
 	size_t				getGrade() const;
-}
+};
 
 #endif
