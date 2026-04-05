@@ -2,6 +2,9 @@
 # define FORM_H
 
 # include <iostream>
+# include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -13,6 +16,7 @@ private:
 
 public:
 	Form( void );
+	Form( const std::string name, int gradeSign, int gradeExec );
 	Form( const Form &copy );
 	~Form( void );
 
@@ -20,10 +24,10 @@ public:
 
 	const std::string	getName( void ) const;
 	bool				isSigned( void ) const;
-	const size_t		getRequiredGradeSign( void ) const;
-	const std::string	getRequiredGradeExec( void ) const;
+	size_t		getRequiredGradeSign( void ) const;
+	size_t		getRequiredGradeExec( void ) const;
 
-	void				sign( void );
+	void	beSigned(Bureaucrat &b);
 
 	class GradeTooHighException : public std::exception
 	{
