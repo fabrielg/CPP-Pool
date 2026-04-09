@@ -1,6 +1,12 @@
 NAME	= form
 CC		= c++
-SRC		= main.cpp Bureaucrat.cpp Form.cpp
+
+SRC		= main.cpp \
+		  Bureaucrat.cpp \
+		  AForm.cpp \
+		  ShrubberyCreationForm.cpp \
+		  RobotomyRequestForm.cpp \
+		  PresidentialPardonForm.cpp
 
 FLAGS	= -Wall -Wextra -Werror
 STD		= -std=c++98

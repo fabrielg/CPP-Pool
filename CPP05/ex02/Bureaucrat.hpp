@@ -2,9 +2,9 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 # define MAX_GRADE 150
 # define GRADE_TOO_HIGHT_EXCEPTION	"Grade too high !"
@@ -50,7 +50,9 @@ public:
 		virtual const char *what() const throw();
 	};
 
-	void	signForm(Form &form);
+	void	signForm(AForm &form);
+	void	executeForm(AForm const & form) const;
+
 };
 
 std::ostream	&operator<<(std::ostream &os, Bureaucrat &b);

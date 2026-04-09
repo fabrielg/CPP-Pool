@@ -1,69 +1,39 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
-	std::cout << "=== BASIC TEST ===" << std::endl;
+	std::cout << "=== TEST EXECUTION ===" << std::endl;
 
-	try
-	{
-		Bureaucrat bob("Bob", 50);
-		Form contract("Contract", 45, 30);
+	Bureaucrat boss("Boss", 1);
+	Bureaucrat low("Intern", 150);
 
-		std::cout << bob << std::endl;
-		std::cout << contract << std::endl;
+	ShrubberyCreationForm shrub("home");
+	RobotomyRequestForm robot("Bender");
+	PresidentialPardonForm pardon("Arthur Dent");
 
-		std::cout << "\n--- Attempt to sign ---" << std::endl;
-		bob.signForm(contract);
+	// Try execute without signing
+	std::cout << "\n--- Execute without signing ---" << std::endl;
+	boss.executeForm(shrub);
 
-		std::cout << contract << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << "Exception: " << e.what() << std::endl;
-	}
+	// Sign forms
+	std::cout << "\n--- Signing forms ---" << std::endl;
+	boss.signForm(shrub);
+	boss.signForm(robot);
+	boss.signForm(pardon);
 
-	std::cout << "\n=== SUCCESS CASE ===" << std::endl;
+	// Low grade execution
+	std::cout << "\n--- Low grade execution ---" << std::endl;
+	low.executeForm(shrub);
 
-	try
-	{
-		Bureaucrat boss("Boss", 1);
-		Form topSecret("TopSecret", 10, 5);
-
-		boss.signForm(topSecret);
-		std::cout << topSecret << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-	std::cout << "\n=== FAILURE CASE (grade too low) ===" << std::endl;
-
-	try
-	{
-		Bureaucrat intern("Intern", 150);
-		Form important("Important", 50, 20);
-
-		intern.signForm(important);
-		std::cout << important << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-	std::cout << "\n=== INVALID FORM CREATION ===" << std::endl;
-
-	try
-	{
-		Form invalid("Invalid", 0, 200); // throw
-	}
-	catch (std::exception &e)
-	{
-		std::cout << "Creation failed: " << e.what() << std::endl;
-	}
+	// Valid executions
+	std::cout << "\n--- Valid execution ---" << std::endl;
+	boss.executeForm(shrub);
+	boss.executeForm(robot);
+	boss.executeForm(pardon);
 
 	return 0;
 }
