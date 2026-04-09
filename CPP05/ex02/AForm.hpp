@@ -4,6 +4,8 @@
 # include <iostream>
 # include "Bureaucrat.hpp"
 
+# define NOT_SIGNED_EXCEPTION "Not signed !"
+
 class Bureaucrat;
 
 class AForm
@@ -37,6 +39,12 @@ public:
 	};
 
 	class GradeTooLowException: public std::exception
+	{
+	public:
+		virtual const char* what() const throw();
+	};
+
+	class NotSignedException: public std::exception
 	{
 	public:
 		virtual const char* what() const throw();
