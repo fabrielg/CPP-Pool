@@ -18,6 +18,15 @@ static bool	isSpecial(const std::string &value)
 	return false;
 }
 
+static bool	isChar(const std::string &value)
+{
+	if (value.size() != 1)
+		return false;
+
+	char c = value[0];
+	return true;
+}
+
 ScalarType	getType(const std::string &value)
 {
 	if (isSpecial(value))
