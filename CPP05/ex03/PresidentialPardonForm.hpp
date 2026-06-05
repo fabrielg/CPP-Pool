@@ -10,6 +10,7 @@ private:
 	std::string _target;
 
 public:
+	PresidentialPardonForm();
 	PresidentialPardonForm(const std::string& target);
 	PresidentialPardonForm(const PresidentialPardonForm &copy);
 	~PresidentialPardonForm();

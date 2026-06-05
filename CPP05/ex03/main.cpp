@@ -16,6 +16,10 @@ int main()
 	AForm* f3 = intern.makeForm("presidential pardon", "Arthur");
 	AForm* f4 = intern.makeForm("unknown form", "test");
 
+	std::cout << *f1 << std::endl;
+	std::cout << *f2 << std::endl;
+	std::cout << *f3 << std::endl;
+
 	std::cout << std::endl;
 
 	if (f1)
@@ -23,7 +27,6 @@ int main()
 		boss.signForm(*f1);
 		boss.executeForm(*f1);
 		newbie.signForm(*f1);
-
 		std::cout << *f1;
 
 		delete f1;

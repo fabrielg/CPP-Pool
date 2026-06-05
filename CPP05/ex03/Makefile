@@ -9,7 +9,7 @@ SRC		= main.cpp \
 		  PresidentialPardonForm.cpp\
 		  Intern.cpp
 
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= #-Wall -Wextra -Werror
 STD		= -std=c++98
 
 OBJ_DIR = obj

@@ -25,8 +25,8 @@ int main()
 
 		Bureaucrat top("Boss", 1);
 		std::cout << top << std::endl;
-
 		++top;
+		std::cout << top << std::endl;
 	}
 	catch (const std::exception& e)
 	{

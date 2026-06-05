@@ -3,8 +3,14 @@
 #include <cstdlib>
 #include <ctime>
 
+RobotomyRequestForm::RobotomyRequestForm()
+	: AForm("RobotomyRequestForm", 72, 45), _target("RobotomyRequest")
+{
+	std::srand(std::time(NULL));
+}
+
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
-	: AForm("RobotomyRequestForm", 72, 45), _target(target)
+	: AForm(target, 72, 45), _target(target)
 {
 	std::srand(std::time(NULL));
 }

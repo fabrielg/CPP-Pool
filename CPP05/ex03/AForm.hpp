@@ -20,7 +20,7 @@ public:
 	AForm( void );
 	AForm( const std::string name, int gradeSign, int gradeExec );
 	AForm( const AForm &copy );
-	virtual ~AForm( void );
+	~AForm( void );
 
 	AForm	&operator=( const AForm &copy );
 

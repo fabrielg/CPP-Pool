@@ -15,6 +15,10 @@ int main()
 	RobotomyRequestForm robot("Bender");
 	PresidentialPardonForm pardon("Arthur Dent");
 
+	std::cout << shrub << std::endl;
+	std::cout << robot << std::endl;
+	std::cout << pardon << std::endl;
+
 	// Try execute without signing
 	std::cout << "\n--- Execute without signing ---" << std::endl;
 	boss.executeForm(shrub);
@@ -24,6 +28,10 @@ int main()
 	boss.signForm(shrub);
 	boss.signForm(robot);
 	boss.signForm(pardon);
+
+	std::cout << shrub << std::endl;
+	std::cout << robot << std::endl;
+	std::cout << pardon << std::endl;
 
 	// Low grade execution
 	std::cout << "\n--- Low grade execution ---" << std::endl;

@@ -2,8 +2,12 @@
 #include "Bureaucrat.hpp"
 #include <fstream>
 
+ShrubberyCreationForm::ShrubberyCreationForm()
+	: AForm("ShrubberyCreationForm", 145, 137), _target("ShrubberyCreation")
+{}
+
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
-	: AForm("ShrubberyCreationForm", 145, 137), _target(target)
+	: AForm(target, 145, 137), _target(target)
 {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy)
