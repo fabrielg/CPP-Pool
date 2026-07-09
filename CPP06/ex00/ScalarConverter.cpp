@@ -95,6 +95,8 @@ static bool isDouble(const std::string &value)
 
 ScalarType getType(const std::string &value)
 {
+	if (value.empty())
+		return INVALID;
 	if (isSpecial(value))
 		return SPECIAL;
 	if (isChar(value))
@@ -166,14 +168,13 @@ static void printDouble(double value)
 void ScalarConverter::convert(const std::string &literal)
 {
 	ScalarType type = getType(literal);
+	double value;
 
 	if (type == INVALID)
 	{
 		std::cout << "Invalid literal" << std::endl;
 		return;
 	}
-
-	double value;
 
 	if (type == CHAR)
 		value = static_cast<double>(literal[0]);
